@@ -1,3 +1,4 @@
+//Hér er nódan sem ég notfæri mér til að skrá inn ferð.
 #pragma once
 #include <iostream>
 #include "Ferd.h"
@@ -10,5 +11,7 @@ struct FerdaNode{
         this->ferd=f;
         this->next = nullptr;
     }
-
+    ~FerdaNode(){
+        delete this->ferd;
+    }
 };

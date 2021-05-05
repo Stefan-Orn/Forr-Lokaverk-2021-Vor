@@ -1,16 +1,21 @@
+// Klasinn fyrir Ferd
 #include <iostream>
 #include "Ferd.h"
-
-Ferd::Ferd(){
+// Hér er cpp skráinn fyrir Ferd. Þar útfæri ég öll föllin sem ég hef skilgreint
+Ferd::Ferd(){ //Hér byrja ég á því að gefa öllum föllunum default gildi.
     this->id = 0;
     this->plass = 10;
     this->bokadir = 0;
 }
-Ferd::Ferd(int id, int plass, int bokadir){
+Ferd::Ferd(int id, int plass, int bokadir){// Þetta er til þess að ef notandinn slær ekki inn neitt gildi að þá verða defaul
+//gildin verði sett inn.
     this->id = id;
     this->plass = plass;
     this->bokadir = bokadir;
 }
+//Síðan útfæri ég bara getters og setterana. Það er bara frekar einfallt, þegar ég er að getta þá er ég að ná í draslið
+// frá þeim stað sem ég er í forritinu svo að ég returna viðeigandi gildi. Í set er ég bara að setja gildi inn í viðeigandi
+// breytu.
 int Ferd::getId(){
     return this->id;
 }
