@@ -34,7 +34,24 @@ int Ferd::getBokadir(){
 void Ferd::setBokadir(int bokadir){
     this->bokadir = bokadir;
 }
-
+bool Ferd::boka(int bokun){
+    if(bokun >= 0){
+        if(bokun + this->bokadir <= this->plass){
+            this->bokadir += bokun;
+            return true;
+        }
+    }
+    return false;
+}
+bool Ferd::afboka(int afbokun){
+    if(afbokun >= 0){
+        if(this->bokadir - afbokun >= 0){
+            this->bokadir -= afbokun;
+            return true;
+        }
+    }
+    return false;
+}
 /***void Ferd::prenta(){
     std::cout
     << "ID: "

@@ -8,6 +8,7 @@ class Ferd{
         int id;
         int plass;
         int bokadir; 
+
     public: // Í public skilgreini ég síðan viðeigandi föll
         Ferd(); // Hér koma smiðirnir fyrir klasann. Þar smíða ég breytunar má segja og gef þeim rétt gildi sem notandinn slær inn
         Ferd(int id, int plass, int bokadir);
@@ -19,6 +20,8 @@ class Ferd{
         void setPlass(int plass);
         int getBokadir();
         void setBokadir(int bokadir);
+        bool boka(int bokun);
+        bool afboka(int afbokun);
         virtual void prenta() = 0; // = 0 => fallið pure virtual => klasinn er abstract 
         virtual ~Ferd() {}; // Ég þarf hér að láta eins og ég sé að fara skilgreina þetta virtual fell en ég er síðan ekkert
         // að fara að gera neitt við það. Það eins sem að það gerir er að hjálpa mér að fá þennan abstract klasa til þess 

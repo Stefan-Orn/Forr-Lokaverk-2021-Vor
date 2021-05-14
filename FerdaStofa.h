@@ -19,6 +19,9 @@ class FerdaStofa{
         void skraBatur(int id, int plass, int bokadir, bool yfirbyggdur);
         void skraFlug(int id, int plass, int bokadir, std::string stadur);
         void skraHjol(int id, int plass, int bokadir, int timi);
+        Ferd* finnaFerd(int id);
+        bool boka(int id, int bokun);
+        bool afboka(int id, int afbokun);
         void prenta();
         ~FerdaStofa();
 };

@@ -1,4 +1,6 @@
 #include "flugferd.h"
+#include <fstream>
+using namespace std;
 // til þess að vera ekki að skrifa fullt af óþarfa kommentum þá segi ég bara hér að þetta er alveg eins og batsferda klasinn
 //nema það að hér eru öðruvísi nafn á frumlegu breytuni og annað gildi (str). Síðan er ég ekki að fikta einhvað í 
 // getStadur fallinu eins og ég fiktaði í getYfir fallinu í batsferda klasanum þar sem að það vandamál dvelur ekki hér.
@@ -25,4 +27,10 @@ void FlugFerd::prenta(){
     << " | Áfangastaður: "
     << this->afangaStadur
     << std::endl;
+    ofstream skrifa("bokanir.txt", fstream::app);
+    if(!skrifa){
+        cout << "Ekki er til slík skrá!\n";
+    }else{
+        skrifa << " " << this->getId() << " " << this->getBokadir() << " " << this->getPlass() << " " << this->afangaStadur << endl;   
+    }
 }

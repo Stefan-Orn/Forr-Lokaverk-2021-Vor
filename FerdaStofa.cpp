@@ -37,6 +37,32 @@ void FerdaStofa::skraFlug(int id, int plass, int bokadir, std::string stadur){
 void FerdaStofa::skraHjol(int id, int plass, int bokadir, int timi){
     this->skra(new HjolaFerd(id,plass,bokadir,timi));
 }
+Ferd* FerdaStofa::finnaFerd(int id){
+    for(int i = 0; i < this->staerd; i++){
+        FerdaNode* current = this->heads[i];
+        while(current){
+            if(current->ferd->getId() == id){
+                return this->heads[i]->ferd;
+            }
+            current = current->next;
+        }
+    }
+    return nullptr;
+}
+bool FerdaStofa::boka(int id, int bokun){
+    Ferd* ferd = this->finnaFerd(id);
+    if(ferd){
+        return ferd->boka(bokun);
+    }
+    return false;
+}
+bool FerdaStofa::afboka(int id, int afbokun){
+    Ferd* ferd = this->finnaFerd(id);
+    if(ferd){
+        return ferd->afboka(afbokun);
+    }
+    return false;
+}
 void FerdaStofa::prenta(){
     for(int i = 0; i < this->staerd; i++){
         FerdaNode* current = this->heads[i];

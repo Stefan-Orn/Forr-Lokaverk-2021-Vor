@@ -1,7 +1,9 @@
 //Klasainn fyrir bataferðir
 #include "batsferd.h"
+#include <fstream>
 #include <string>
 #include "Ferd.h"
+using namespace std;
 // Hérna geri ég ekki annað en að gefa breytum og föllum viðeigandi gildi. Alveg eins og í ferd.cpp.
 BatsFerd::BatsFerd(){
     this->yfirbyggdur = false;
@@ -34,7 +36,11 @@ void BatsFerd::prenta(){ // Prenta fallið prentar út bátsferðina á flottan 
     << " | Yfirbyggður: "
     << this->getYfir()
     << std::endl;
-
-
+    ofstream skrifa("bokanir.txt", fstream::app);
+    if(!skrifa){
+        cout << "Ekki er til slík skrá!\n";
+    }else{
+        skrifa << " " << this->getId() << " " << this->getBokadir() << " " << this->getPlass() << " " << this->getYfir() << endl;   
+    }
 
 }
